@@ -1,62 +1,43 @@
+var kardashians = ["Kim Kardashian", "Kourtney Kardashian", "Khloe Kardashian"];
 
-var romcoms = ["The Notebook", "Crazy, Stupid, Love"];
 
-function makeButton(str){
-    return `<button class="romcom">${str}</button>`
+function makeButton(str) {
+    return `<button class="kardashian">${str}</button>`
 }
 
-function renderButtons(){
-    $("#buttons-view").html(romcoms.map(makeButton));
+function renderButtons() {
+    $("#buttons-view").html(kardashians.map(makeButton));
 }
 
-$("#add-romcom").on("click", function(event){
+$("#add-kardashian").on("click", function(event) {
     event.preventDefault();
-    var romcom = $("#romcom-input").val()
-    romcoms.push(romcom);
+    var kardashian = $("#kardashian-input").val()
+    kardashians.push(kardashian);
 
     renderButtons();
 })
 
-
-
 renderButtons();
 
-$(document).on("click", ".romcom", function(){
-
-    var romcom = $(this).text();
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + romcom + "&api_key=6QcGzIFfSkh7134EOYpVVkYBO6fd7ZZw";
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(romcom) {
-        console.log(romcom);
-        $("#romcom-view").html(`
-        <img src="${romcom.url}"/>
-        `);
-    
-    });
-
-});
-
-function makeGIF(obj){
+function makeGif(obj){
     return `
         <div>
-            <img src="${obj.images.fixed_height.url}" />
+            <p>Rating: ${obj.rating}</p>
+            <img src="${obj.images.fixed_height_still.url}" />
         </div>
     `
 }
 
-$(document).on("click", ".romcom", function(){
-    var romcom = $(this).text();
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + romcom + "&api_key=6QcGzIFfSkh7134EOYpVVkYBO6fd7ZZw";
+$(document).on("click", ".kardashian", function(){
+    var kardashian = $(this).text();
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    kardashian + "&api_key=6QcGzIFfSkh7134EOYpVVkYBO6fd7ZZw";
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(romcom) {
-        console.log(romcom);
-        $("#romcom-view").prepend(response.data.map(makeGIF))
-    });
-    
-    });
+    }).then(function(response) {
+        console.log(response);
+    $("#kardashians").prepend(response.data.map(makeGif))
+  });
+});
