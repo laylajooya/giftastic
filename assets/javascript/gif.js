@@ -27,7 +27,7 @@ renderButtons();
 function makeGif(obj){
     return `
         <div>
-            <img src="${obj.images.fixed_height_still.url}" />
+            <img src="${obj.images.fixed_height_still.url}" data-still="${obj.images.fixed_height_still.url}" data-animate="${obj.images.fixed_height.url}" data-state="still" class="gif" />
             <p>Rating: ${obj.rating}</p>
             <br>
         </div>
@@ -49,8 +49,9 @@ $(document).on("click", ".kardashian", function(){
 });
 
 
-$(document).on("click", "#kardashians", function() {
+$(document).on("click", ".gif", function() {
     var state = $(this).attr("data-state");
+    console.log(state);
     if (state == "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
