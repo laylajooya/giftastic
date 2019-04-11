@@ -24,6 +24,7 @@ $("#add-kardashian").on("click", function(event) {
 // call function to display initial Kardashians array
 renderButtons();
 
+// function to return GIF image and rating
 function makeGif(obj){
     return `
         <div>
@@ -44,7 +45,7 @@ $(document).on("click", ".kardashian", function(){
         method: "GET"
     }).then(function(response) {
         console.log(response);
-    $("#kardashians").prepend(response.data.map(makeGif))
+    $("#kardashians").html(response.data.map(makeGif))
   });
 });
 
