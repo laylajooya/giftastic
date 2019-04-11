@@ -35,6 +35,7 @@ function makeGif(obj){
     `
 }
 
+//display gifs from api onto page
 $(document).on("click", ".kardashian", function(){
     var kardashian = $(this).text();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -49,7 +50,7 @@ $(document).on("click", ".kardashian", function(){
   });
 });
 
-
+// to make gif animate or still on click
 $(document).on("click", ".gif", function() {
     var state = $(this).attr("data-state");
     console.log(state);
