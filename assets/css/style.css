@@ -1,0 +1,66 @@
+body {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
+input[type=text] {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+
+}
+
+input[type=submit] {
+    background-color: pink;
+    padding: 10px;
+    border-radius: 4px;
+    border-color: pink;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+
+#buttons-view {
+    padding: 20px;
+}
+
+button.kardashian {
+    background-color: pink;
+    padding: 10px;
+    border-radius: 4px;
+    border-color: pink;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+
+}
+
+#kardashians {
+    padding: 20px;
+
+}
+
+#form {
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
